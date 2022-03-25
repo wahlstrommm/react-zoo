@@ -56,30 +56,32 @@ function GetAnimals() {
       <div className='notFeedText'>
         <div className='notFeedContainer'>
         <h4 className='notFeedHeading'>Djur som <b>kvar</b>  att mata är:</h4><br />
-      {animalAPI.map((animalAPI,i)=>{
-        if(animalAPI.isFed==false){
-          return(<div key={i}>
-            <h5>{animalAPI.name},</h5>
-          </div>
+
+        {animalAPI.map((animalAPI,i)=>{
+          if(animalAPI.isFed==false){
+            return(<div key={i}>
+                    <h5>{animalAPI.name},</h5>
+                  </div>
           )}
         })
       }
-      <h4 className='notFeedHeading' >Djuren som är <b>matad</b>  är:</h4>
+      <h4 className='notFeedHeading' >Djuren som är <b>matade</b>  är:</h4>
+
             {animalAPI.map((animalAPI,i)=>{
-        if(animalAPI.isFed==true){
-          return(<div key={i}>
-            <h5 className='feedText'>{animalAPI.name},</h5>
-          </div>
-          )}
-        })
-      }
+          if(animalAPI.isFed==true){
+            return(<div key={i}>
+                    <h5 className='feedText'>{animalAPI.name},</h5>
+                  </div>
+              )}
+            })
+          }
       </div>
       </div>
           {animalAPI.map((animalAPI,i)=>{
         return( <div className='animalContainer' key={i}>
                   <p>
                     <img src={animalAPI.imageUrl} className="imgContainer" alt={animalAPI.name} />  
-                      <br /> Namn: {animalAPI.name} <i>{animalAPI.latinName} </i> 
+                      <br /> Namn: {animalAPI.name} <i>{animalAPI.latinName}</i> 
                       <br /> <br /> Född: {animalAPI.yearOfBirth} <br /> 
                       Beskrvning: {animalAPI.shortDescription}  <br />
                       <Link to={`/animalinfo/${animalAPI.id}`}><button className='btn' >Klicka för att mata och lära känna {animalAPI.name} !</button></Link>

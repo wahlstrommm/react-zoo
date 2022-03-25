@@ -58,8 +58,10 @@ const [animalsFromLS, SetAnimalsFromLS] = useState<any>();
  function feedAnimal(animalId:number){
    for(var i in animalsFromLS){
      if(animalsFromLS[i].id===animalId){
+
           animalsFromLS[i].lastFed=new Date
           animalsFromLS[i].isFed=true
+
       localStorage.setItem('My_animals',JSON.stringify(animalsFromLS))
     }}}
 
@@ -97,16 +99,18 @@ const [animalsFromLS, SetAnimalsFromLS] = useState<any>();
         animalID=animalsFromLS[i].id
         animialName=animalsFromLS[i].name
       resultText = (  <div className='resultContainer'>
+
             <div className='headningInfoContainer'>
               <h1 className='headningText'>{animalsFromLS[i].name} <i>{animalsFromLS[i].latinName}</i> född år {animalsFromLS[i].yearOfBirth}</h1>
             </div>
+
     <div className='imgAnimalInfoContainer'>
-      <div className='imgContainerRight'>
+        <div className='imgContainerRight'>
           <img src={animalsFromLS[i].imageUrl} className='imgContainerForInfo' alt={animalsFromLS[i].name} /> 
-            <div className='btnContainer'>
-              <div className='feedBtnContainer'><button disabled={disable} onClick={()=>(feedAnimal(animalID),setDisable(true))} className='btn'>Mata djuret ( {animalsFromLS[i].name} )</button></div>
-              <div className='homeBtnContainer'><Link to={`/`}><button className='btn' >Hem!</button></Link></div>
-            </div> 
+              <div className='btnContainer'>
+                <div className='feedBtnContainer'><button disabled={disable} onClick={()=>(feedAnimal(animalID),setDisable(true))} className='btn'>Mata djuret ( {animalsFromLS[i].name} )</button></div>
+                <div className='homeBtnContainer'><Link to={`/`}><button className='btn' >Hem!</button></Link></div>
+              </div> 
         </div>
       </div>
         <div className='animalInfoTextContainer'>
@@ -123,15 +127,18 @@ const [animalsFromLS, SetAnimalsFromLS] = useState<any>();
   return (
     <>
     <div className='Info-container'>
+
         <div className='linkContainer'>
             <a href="https://github.com/wahlstrommm"><img src={GithubLogo} alt="Github" className='githubLogo'/></a>
         </div>
-       <div className='logoInfoContainer'>
-        <img src={logoText} alt="logotext" className='textLogo'/>
+
+        <div className='logoInfoContainer'>
+          <img src={logoText} alt="logotext" className='textLogo'/>
         </div>
+
       <div className='animalInfoContainer'>
         <div className='resultContainer'>
-         {resultText}
+          {resultText}
           <div className='foodContainer'>
             <div className='textFood'>
               <h3>Senast matad: {lastFEDTEXT}</h3>
